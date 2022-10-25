@@ -7,6 +7,8 @@ package designpatterm;
 import designpatterm.TemplateMethodPattern.*;
 import designpatterm.Factory.*;
 import designpatterm.Proxy.*;
+import designpatterm.Bridge.*;
+import designpatterm.ChainofResponsibilityPattern.*;
 
 /**
  *
@@ -49,6 +51,35 @@ public class DesignPatterm {
         estateAgent.finish();
         
         //--------------------------------------------------------
+        
+        FewView fewView = new FewView();
+        System.out.println("---- 簡單包包說明 ----");
+        fewView.setResources(new Bag());
+        fewView.show();
+        System.out.println("---- 簡單書本說明 ----");
+        fewView.setResources(new Book());
+        fewView.show();
+
+        FullView fullView = new FullView();
+        System.out.println("---- 詳細包包說明 ----");
+        fullView.setResources(new Bag());
+        fullView.show();
+        System.out.println("---- 詳細書本說明 ----");
+        fullView.setResources(new Book());
+        fullView.show();
+        //------------------------------------------------------
+                Handler manager = new Manager();
+
+//        小問題
+        Trouble smallTrouble = new Trouble("想加薪500", 500);
+
+        manager.handleRequest(smallTrouble);
+
+//        大問題
+        Trouble bigTrouble = new Trouble("搞壞五十萬的機器",500000);
+
+        manager.handleRequest(bigTrouble);
+
     }
     
 }

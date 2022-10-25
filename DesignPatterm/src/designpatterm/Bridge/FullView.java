@@ -9,15 +9,10 @@ package designpatterm.Bridge;
  *
  * @author icauguarus
  */
-public abstract class View {
-
-    Resources resources;
-
-    public void setResources(Resources resources){
-        this.resources = resources;
+public class FullView extends View {
+    @Override
+    public void show() {
+        resources.photo();
+        resources.describe();
     }
-
-//    定義畫面如何擺放
-    public abstract void show();
-
 }
